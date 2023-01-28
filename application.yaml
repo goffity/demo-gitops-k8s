@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: goffity/demo-gitops-web
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+  name: demo-web
+  namespace: argocd
+spec:
+  destination:
+    namespace: git-ops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: k8s
+    repoURL: 'https://github.com/goffity/demo-gitops-web'
+    targetRevision: HEAD
+    directory:
+      recurse: true
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
