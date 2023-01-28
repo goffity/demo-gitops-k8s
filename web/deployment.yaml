@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: demo-web-deployment
-          image: goffity/demo-gitops-web
+          image: goffity/demo-gitops-web:1.0.1
           resources:
             requests:
               memory: "32Mi"
