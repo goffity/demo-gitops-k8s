@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - goffity/demo-gitops-web:v1.0.1
+  - goffity/demo-gitops-web:1.0.0
