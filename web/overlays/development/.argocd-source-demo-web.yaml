@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - goffity/demo-gitops-web:v2
