@@ -12,13 +12,15 @@ spec:
     namespace: git-ops
     server: 'https://kubernetes.default.svc'
   source:
-    path: k8s
-    repoURL: 'https://github.com/goffity/demo-gitops-web'
+    path: web
+    repoURL: 'https://github.com/goffity/demo-gitops-k8s.git'
     targetRevision: HEAD
     directory:
       recurse: true
   project: default
   syncPolicy:
+    syncOptions:
+      - "CreateNamespace=true"
     automated:
       prune: true
       selfHeal: true
