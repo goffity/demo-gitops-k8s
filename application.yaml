@@ -14,7 +14,7 @@ spec:
     namespace: git-ops
     server: 'https://kubernetes.default.svc'
   source:
-    path: web
+    path: web/overlays/development
     repoURL: 'https://github.com/goffity/demo-gitops-k8s.git'
     targetRevision: HEAD
     directory:
