@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - goffity/demo-gitops-api:0.0.2
