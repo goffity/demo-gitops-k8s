@@ -17,7 +17,7 @@ spec:
         - name: git-ops-api
           image: goffity/demo-gitops-api:0.0.1
           resources:
-            equests:
+            requests:
               memory: "32Mi"
               cpu: "0.01"
             limits:
