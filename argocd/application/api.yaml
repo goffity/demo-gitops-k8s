@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: goffity/demo-gitops-api
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-branch: main
+  name: demo-api
+  namespace: argocd
+spec:
+  destination:
+    namespace: git-ops
+    server: "https://kubernetes.default.svc"
+  source:
+    path: api/overlays/development
+    repoURL: "https://github.com/goffity/demo-gitops-k8s"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - "CreateNamespace=true"
+    automated:
+      prune: true
+      selfHeal: true

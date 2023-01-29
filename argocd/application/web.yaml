@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/image-list: goffity/demo-gitops-web
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
@@ -12,10 +12,10 @@ metadata:
 spec:
   destination:
     namespace: git-ops
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
   source:
     path: web/overlays/development
-    repoURL: 'https://github.com/goffity/demo-gitops-k8s'
+    repoURL: "https://github.com/goffity/demo-gitops-k8s"
     targetRevision: HEAD
   project: default
   syncPolicy:
